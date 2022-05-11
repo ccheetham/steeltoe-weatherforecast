@@ -21,6 +21,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAllActuators();
 
 var app = builder.Build();
 
@@ -39,5 +40,4 @@ app.UseFileServer(new FileServerOptions
 });
 
 app.MapControllers();
-app.MapAllActuators();
 app.Run();
