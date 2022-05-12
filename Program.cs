@@ -10,10 +10,9 @@ var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 var url = string.Concat("http://0.0.0.0:", port);
 builder.WebHost.UseUrls(url);
 
+// builder.Services.AddAllActuators();
 builder.Services.AddAllActuators(builder.Configuration);
-builder.Services.AddDistributedTracingAspNetCore();
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sample", Version = "v1" }); });
+// builder.Services.AddDistributedTracingAspNetCore();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -21,7 +20,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAllActuators();
 
 var app = builder.Build();
 
